@@ -6,7 +6,7 @@ Currently, the attribution models work well for single periods with static data.
 
 Note, the objective of this attribution exercise was to develop a method of performance attribution that retains the simplicity and intuitive appeal at the same time assists in the predictability of future returns.
 
-Step 1: Factor Gathering ( Equity and Fixed Income Factors)
+## Step 1: Factor Gathering ( Equity and Fixed Income Factors)
 
 A number of factors have persisted in the Fixed Income and Equity markets that can be categorized under two broader categories
 
@@ -18,11 +18,11 @@ Similarly for Equity: Quality Fator, Size Factor, Betting Against Beta, Market r
 
 Note, AQR daily factors were taken from AQR website. However, this data required data wrangling before collating them together to run a regression.
 
-Step 2: Decomposing Fixed Income Factors
+## Step 2: Decomposing Fixed Income Factors
 
 To understand how Fixed Income returns are affected by Shift, Flattening and Inversion of the Yield Curve, decomposing the daily yield curve data using Principal Component Analysis (PCA) was done.
 
-Step 3: Factor Analysis
+## Step 3: Factor Analysis
 
 To avoid any bias in the model by random selection, I preferred to choose Time Series Split to create the cross-validation datasets and then set out a 30% test set aside to test my model predictions.
 
@@ -30,7 +30,7 @@ Sometimes, one may encounter an issue with overfitting based on test/train sets,
 
 The next step was to understand the factors contributing to an individual's returns. Also to understand how my model was performing against the actual it was important to visualize actual return vs predicted return. Expectedly, the model result was well aligned with tight upper and lower bounds.
 
-﻿Step 4: Portfolio Construction
+## Step 4: Portfolio Construction
 
 I loaded monthly returns data across both asset classes (you can use daily returns as well for more data sets) and created Mean-Variance Optimized portfolio using two techniques:
 
@@ -38,7 +38,7 @@ Monte Carlo Simulation: 25000 simulations were run with all the managers monthly
 Quadratic Programming optimization: 10000 runs of the optimization were used to produce a portfolio with a relatively higher Sharpe ratio.
 As the Quadratic Programming gave a much higher Sharpe ratio, I used the same to create proforma returns and model predictions in Step 5
 
-Step 5: Portfolio Forecasting
+## Step 5: Portfolio Forecasting
 
 Following the identification of the best portfolio using quadratic programming optimization, I tried to forecast its return in the future by creating various lagged returns (lag 3 to lag 10) and then fitting various models to forecast future returns based on lagged returns. 
 
@@ -52,7 +52,7 @@ Auto-Regressive Integrated Moving Average (ARIMA): was used to capture a suite o
 
 ARIMA predictions turned out to be very well aligned for historical returns.
 
-Conclusion
+## Conclusion
 
 Return attribution is an essential tool for all performance analysts that generate a true understanding of the sources of added and subtracted value in the portfolio, and allow the performance analysts to participate in the investment decision process and thus add value. 
 
